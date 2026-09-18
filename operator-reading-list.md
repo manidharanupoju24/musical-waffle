@@ -13,12 +13,12 @@ The thing your operator is actually a client of.
 
 | Resource | Why |
 |---|---|
-| [The Kubernetes Control Plane for Busy People Who Like Pictures](https://www.youtube.com/watch?v=zCXiXKMqnuE) — Daniel Smith **[yours]** | Best single overview of how a request becomes an etcd write. Start here. |
-| [Your second video](https://www.youtube.com/watch?v=_SCzRtU5RRA) **[yours]** | — |
+| [The Kubernetes Control Plane for Busy People Who Like Pictures](https://www.youtube.com/watch?v=zCXiXKMqnuE) — Daniel Smith | Best single overview of how a request becomes an etcd write. Good starting point. |
+| [Your second video](https://www.youtube.com/watch?v=_SCzRtU5RRA) **[Essential patterns for Designing and Implementing Operator]** | — |
 | [Kubernetes API Concepts](https://kubernetes.io/docs/reference/using-api/api-concepts/) | Resource versions, watch semantics, chunking, `sendInitialEvents`. Short and dense. Read before the list-performance post. |
 | [SIG Architecture: API Conventions](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md) | The constitution. Spec/status split, conditions, optional vs required, naming. Every CRD review argument traces back here. |
 | [Server-Side Apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/) | Field ownership and conflict semantics — directly relevant when two controllers write the same object. |
-| [API Priority and Fairness](https://kubernetes.io/docs/concepts/cluster-administration/flow-control/) | How the apiserver throttles your operator. Pairs with the list-performance post. |
+| [API Priority and Fairness](https://kubernetes.io/docs/concepts/cluster-administration/flow-control/) | How the apiserver throttles an operator. Pairs with the list-performance post. |
 
 ---
 
@@ -28,8 +28,8 @@ Reflector → DeltaFIFO → Indexer → event handlers → workqueue.
 
 | Resource | Why |
 |---|---|
-| [sample-controller](https://github.com/kubernetes/sample-controller) + [controller-client-go.md](https://github.com/kubernetes/sample-controller/blob/master/docs/controller-client-go.md) **[yours]** | The canonical wiring diagram. Everything controller-runtime hides is explicit here. |
-| [Informers, Listers, Workqueues](https://medium.com/@dhruvbhl/informers-listers-workqueues-the-brain-behind-your-controller-f5b0967026de) **[yours]** | Same material, narrative form. |
+| [sample-controller](https://github.com/kubernetes/sample-controller) + [controller-client-go.md](https://github.com/kubernetes/sample-controller/blob/master/docs/controller-client-go.md) | The canonical wiring diagram. Everything controller-runtime hides is explicit here. |
+| [Informers, Listers, Workqueues](https://medium.com/@dhruvbhl/informers-listers-workqueues-the-brain-behind-your-controller-f5b0967026de) | Same material, narrative form. |
 | [SIG API Machinery: Writing Controllers](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-api-machinery/controllers.md) | **The highest-value doc on this list.** Written by the people who wrote the controllers. Level-triggered vs edge-triggered, why you re-read instead of trusting the event, why you never assume you saw every change. |
 | [client-go `tools/cache` godoc](https://pkg.go.dev/k8s.io/client-go/tools/cache) | Read the package comments on `SharedIndexInformer`, `Reflector`, `DeltaFIFO`. Source comments beat any blog post. |
 | [client-go `util/workqueue` godoc](https://pkg.go.dev/k8s.io/client-go/util/workqueue) | The dirty/queue/processing sets and the rate limiter composition. |
@@ -56,7 +56,7 @@ The layer you actually write against.
 
 | Resource | Why |
 |---|---|
-| [CRD generation pitfalls](https://ahmet.im/blog/crd-generation-pitfalls/) — Ahmet Alp Balkan **[yours]** | Four ways to say "optional", zero-vs-null, nested defaulting, silently-ignored misspelled markers. Audit your own CRDs against this. |
+| [CRD generation pitfalls](https://ahmet.im/blog/crd-generation-pitfalls/) — Ahmet Alp Balkan | Four ways to say "optional", zero-vs-null, nested defaulting, silently-ignored misspelled markers. Audit your own CRDs against this. |
 | [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) | Structural schemas, pruning, subresources, conversion, CEL validation rules. |
 | [Versions in CRDs](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/) | Storage version, conversion webhooks, what a version bump actually costs you. |
 
@@ -66,7 +66,7 @@ The layer you actually write against.
 
 | Resource | Why |
 |---|---|
-| [Kubernetes list performance](https://ahmet.im/blog/kubernetes-list-performance/) — Ahmet Alp Balkan **[yours]** | The `limit=500&resourceVersion=0` trap, watch cache behavior by version, KEP-2340 / 3157 / 4988 / 5116. Read *after* the API Concepts doc. |
+| [Kubernetes list performance](https://ahmet.im/blog/kubernetes-list-performance/) — Ahmet Alp Balkan | The `limit=500&resourceVersion=0` trap, watch cache behavior by version, KEP-2340 / 3157 / 4988 / 5116. Read *after* the API Concepts doc. |
 | [kubernetes/enhancements (KEPs)](https://github.com/kubernetes/enhancements) | Grep for the KEP numbers above and read the originals. KEPs are the best-written docs in the project. |
 
 ---
