@@ -1,8 +1,5 @@
 # Kubernetes Operators — Consolidated Reading List
 
-Your links marked **[yours]**. Everything else is an addition in the same genre
-(internals-depth, primary sources, not tutorials).
-
 Suggested order: Layer 1 → 2 → 3 → 4. Layers 5–7 are reference/depth.
 
 ---
@@ -98,5 +95,5 @@ Better than any blog once the fundamentals land.
 
 ## Books
 
-- **Programming Kubernetes** (Hausenblas & Schimanski) — strongest on informers/workqueues; 2019, client-go-centric, so translate to controller-runtime yourself.
+- **Programming Kubernetes** (Hausenblas & Schimanski) — strongest on informers/workqueues; 2019, client-go-centric, so translate to controller-runtime.
 - **Kubernetes Best Practices** / **Managing Kubernetes** — operational context, lighter on internals.
